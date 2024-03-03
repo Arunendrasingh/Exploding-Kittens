@@ -1,0 +1,9 @@
+{
+  "cards": [
+    { "id": 1, "name": "Cat" },
+    { "id": 2, "name": "Defuse" },
+    { "id": 3, "name": "Shuffle" },
+    { "id": 4, "name": "Exploding Kitten" }
+  ],
+  "leaderBoard": []
+}
