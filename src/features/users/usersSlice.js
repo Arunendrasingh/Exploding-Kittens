@@ -10,7 +10,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     addUser(state, action) {
-      state.userName = action.payload.userName;
+      state.userName = action.payload;
     },
     updateUserScore(state, action) {
       state.userScore = action.payload.userScore;

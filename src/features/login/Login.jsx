@@ -1,7 +1,14 @@
-function Login() {
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addUser } from "../users/usersSlice";
 
-  function handleFormSubmit(e){
-    
+function Login() {
+  const [userName, setUserName] = useState("");
+  const dispatch = useDispatch();
+
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    dispatch(addUser(userName));
   }
   return (
     <div className="col-9 m-auto h-100">
@@ -10,20 +17,22 @@ function Login() {
         <div className="card-body bg-info-subtle d-flex justify-content-center align-items-center">
           <div className="card bg-dark border-0 w-50 p-3">
             <div className="card-body text-center">
-              <form action="/game.html">
+              <form onSubmit={handleFormSubmit}>
                 <div className="mb-3">
                   <input
                     type="text"
                     className="form-control border-0 rounded-pill"
                     placeholder="Enter your name"
                     id="name"
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
                   />
                 </div>
                 <button
                   type="submit"
                   className="btn btn-primary rounded-pill px-4"
                 >
-                  Start
+                  Start Game
                 </button>
               </form>
             </div>
