@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 export default function Card({ index, currentCard, selectedCard }) {
-  console.log("Rendering Card: ", selectedCard);
   if ((selectedCard?.index === index) & (selectedCard?.name === "Cat")) {
     return <CatCard />;
   } else if (
@@ -20,7 +19,6 @@ export default function Card({ index, currentCard, selectedCard }) {
   ) {
     return <SuffleCard />;
   } else {
-    console.log("Rendering From Card");
     return <CardBack />;
   }
 }

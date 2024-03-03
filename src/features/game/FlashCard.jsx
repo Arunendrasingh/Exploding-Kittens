@@ -18,7 +18,7 @@ function FlashCard() {
       index: index,
     });
   }
-  console.log("Selected ID: ", selectedCard);
+  
 
   function getRandomCards(cardList, count) {
     let result_arr = [];
