@@ -42,7 +42,6 @@ function FlashCard() {
       );
     }
     getCardDetail();
-    // console.log("Card Detail: ", cardDetail)
   }, []);
 
   return (

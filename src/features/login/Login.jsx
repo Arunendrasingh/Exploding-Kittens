@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addUser } from "../users/usersSlice";
+import { addUser, setLoader } from "../users/usersSlice";
 
 function Login() {
   const [userName, setUserName] = useState("");
   const dispatch = useDispatch();
 
-  function handleFormSubmit(e) {
+  // const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  async function handleFormSubmit(e) {
+    dispatch(setLoader(true));
     e.preventDefault();
+    dispatch(setLoader(false));
     dispatch(addUser(userName));
   }
   return (

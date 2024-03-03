@@ -1,11 +1,10 @@
-import React from 'react'
-import FlashCard from './FlashCard'
+// import React from 'react'
 
-function Game() {
-    // Here Load all Game related Data from API
-  return (
-    <FlashCard />
-  )
-}
+// function Game() {
+//     // Here Load all Game related Data from API
+//   return (
+//     <>Game</
+//   )
+// }
 
-export default Game
+// export default Game
