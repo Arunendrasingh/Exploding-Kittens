@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 
 function AppNav() {
-  const {cardLength} = useSelector(state=> state.game)
+  const { totalLifeline } = useSelector((state) => state.game);
+  console.log(totalLifeline, typeof totalLifeline);
   return (
     <nav
       className="navbar bg-primary navbar-expand-lg bg-body-primary"
@@ -48,7 +49,8 @@ function AppNav() {
             </li>
           </ul>
           <div className="d-flex text-white">
-            <div className="me-2 px-2">{Number(cardLength) > 0?'❤'*Number(cardLength): null}</div>
+            {/* <div className="me-2 px-2">❤❤❤❤❤</div> */}
+            <div className="me-2 px-2">{"❤".repeat(totalLifeline)}</div>
             <div className="px-2">
               <strong>Score:</strong> 50
             </div>
