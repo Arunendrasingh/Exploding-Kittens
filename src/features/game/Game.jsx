@@ -1,10 +1,18 @@
-// import React from 'react'
+import React from "react";
+import { useSelector } from "react-redux";
 
-// function Game() {
-//     // Here Load all Game related Data from API
-//   return (
-//     <>Game</
-//   )
-// }
+import Spinner from "../Spinner";
+import FlashCard from "./FlashCard";
+import GameStatus from "./GameStatus";
 
-// export default Game
+function Game() {
+  const { gameStatus, isLoading } = useSelector((state) => state.game);
+  console.log("Game Status: ", gameStatus)
+  // Here Load all Game related Data from API
+  return <>
+  {isLoading && <Spinner />}
+  {gameStatus !== "finished" ? <FlashCard /> : <GameStatus />}
+  </>;
+}
+
+export default Game;

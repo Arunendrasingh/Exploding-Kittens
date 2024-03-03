@@ -7,6 +7,7 @@ const initialState = {
   gameStatus: "",
   selectedCard: null,
   gameResult: "",
+  isLoading: false,
 };
 
 const gameSlice = createSlice({
@@ -37,6 +38,17 @@ const gameSlice = createSlice({
     setGameStatus(state, action) {
       state.gameStatus = action.payload;
     },
+    startNewGame(state, action) {
+      state.cardLength = 0;
+      state.totalLifeline = 0;
+      state.cardDetail = [];
+      state.gameStatus = "";
+      state.selectedCard = null;
+      state.gameResult = "";
+    },
+    setIsLoading(state, action) {
+      state.isLoading = action.payload;
+    },
   },
 });
 
@@ -46,5 +58,7 @@ export const {
   decreaseLifeline,
   setSelectedCard,
   setGameStatus,
+  startNewGame,
+  setIsLoading,
 } = gameSlice.actions;
 export default gameSlice.reducer;

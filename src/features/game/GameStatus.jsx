@@ -1,4 +1,8 @@
+import { useDispatch } from "react-redux";
+import { startNewGame } from "./gameSlice";
+
 function GameStatus() {
+  const dispatch = useDispatch();
   return (
     <div className="container mt-5">
       <div className="row align-item-center text-center">
@@ -13,7 +17,7 @@ function GameStatus() {
         </div>
 
         <div className="row justify-content-evenly mt-5">
-          <button className="col-4 btn btn-primary">Start New Game</button>
+          <button className="col-4 btn btn-primary" onClick={() => dispatch(startNewGame())}>Start New Game</button>
           <button className="col-4 btn btn-danger">Quit & Logout</button>
         </div>
       </div>

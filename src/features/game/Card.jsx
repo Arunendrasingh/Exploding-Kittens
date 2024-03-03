@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 export default function Card({ index, currentCard, selectedCard }) {
   if ((selectedCard?.index === index) & (selectedCard?.name === "Cat")) {
     return <CatCard />;
@@ -38,6 +36,4 @@ function DefuseCard() {
 function SuffleCard() {
   return <div className="bg-sm-transparent card mycard card-suffle"></div>;
 }
-//   function CardBack() {
-//     return <div className="card bg-md-transparent mycard card-back"></div>;
-//   }
+
