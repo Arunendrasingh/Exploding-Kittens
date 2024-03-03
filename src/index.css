@@ -1,0 +1,52 @@
+.vh-80 {
+  height: 80vh;
+}
+
+.card-deck {
+  background-image: url('../img/deck-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px 5px black;
+}
+
+.mycard {
+  width: 18%;
+  height: 90%;
+}
+
+.card-back {
+  background-image: url('../img/back.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card-kitty {
+  background-image: url('../img/kitten.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card-bomb {
+  background-image: url('../img/bomb.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card-defuse {
+  background-image: url('../img/defuse-Bomb.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card-suffle {
+  background-image: url('../img/suffle.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
