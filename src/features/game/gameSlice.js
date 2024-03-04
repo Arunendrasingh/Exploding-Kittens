@@ -34,9 +34,11 @@ const gameSlice = createSlice({
     setGameResult(state, action) {
       state.gameResult = action.payload;
       state.selectedCard = null;
+      state.gameStatus = "finished";
     },
     setGameStatus(state, action) {
       state.gameStatus = action.payload;
+      state.selectedCard = null;
     },
     startNewGame(state, action) {
       state.cardLength = 0;
@@ -60,5 +62,6 @@ export const {
   setGameStatus,
   startNewGame,
   setIsLoading,
+  setGameResult
 } = gameSlice.actions;
 export default gameSlice.reducer;

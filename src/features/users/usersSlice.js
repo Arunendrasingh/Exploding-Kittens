@@ -4,6 +4,8 @@ const initialState = {
   userName: "",
   userScore: 0,
   isLoading: false,
+  totalGame: 0,
+  totalGameScore: 0,
 };
 
 const userSlice = createSlice({
@@ -13,14 +15,32 @@ const userSlice = createSlice({
     addUser(state, action) {
       state.userName = action.payload;
     },
-    updateUserScore(state, action) {
-      state.userScore = action.payload.userScore;
+    updateUserCurrentScore(state, action) {
+      state.userScore += 1;
     },
     setLoader(state, action) {
       state.isLoading = action.payload;
     },
+    setScore(state, action) {
+      state.totalGameScore += state.userScore;
+    },
+    resetForNewGame(state, action) {
+      state.totalGameScore += state.userScore;
+      state.userScore = 0;
+      state.isLoading = false;
+      state.totalGame += 1;
+    },
+    // IncreaseTotalPlayedGame(state, action) {
+    // },
   },
 });
 
-export const { addUser, updateUserScore, setLoader } = userSlice.actions;
+export const {
+  addUser,
+  updateUserCurrentScore,
+  setLoader,
+  // IncreaseTotalPlayedGame,
+  setScore,
+  resetForNewGame,
+} = userSlice.actions;
 export default userSlice.reducer;

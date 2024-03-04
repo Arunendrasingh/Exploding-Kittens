@@ -7,9 +7,11 @@ import {
   setSelectedCard,
   setGameStatus,
   setIsLoading,
+  setGameResult,
 } from "./gameSlice";
 import Spinner from "../Spinner";
 import Card from "./Card";
+import { updateUserCurrentScore } from "../users/usersSlice";
 
 const host = "http://localhost:8000";
 
@@ -17,16 +19,16 @@ function FlashCard() {
   const { cardDetail, totalLifeline, selectedCard, isLoading } = useSelector(
     (state) => state.game
   );
-  // const [isLoading, setIsLoader] = useState(false);
 
   const dispatch = useDispatch();
 
   function filterSelectedCard({ name, curr_index }) {
+    // Calculate the New cardLength
+    // new Card List after removing this card from list.
+    const newCardList = cardDetail.filter(
+      (value, index) => curr_index !== index
+    );
     if (name === "Cat") {
-      // new Card List after removing this card from list.
-      const newCardList = cardDetail.filter(
-        (value, index) => curr_index !== index
-      );
       dispatch(
         setCardDetail({
           cardDetail: newCardList,
@@ -34,10 +36,6 @@ function FlashCard() {
         })
       );
     } else if (name === "Defuse") {
-      const newCardList = cardDetail.filter(
-        (value, index) => curr_index !== index
-      );
-
       dispatch(
         setCardDetail({
           cardDetail: newCardList,
@@ -50,13 +48,10 @@ function FlashCard() {
         dispatch(decreaseLifeline());
       } else {
         // If no life present then, end the game.
-
+        dispatch(setGameResult("Lost"));
         dispatch(setGameStatus("finished"));
       }
       // Setting-up new filtered detail.
-      const newCardList = cardDetail.filter(
-        (value, index) => curr_index !== index
-      );
       dispatch(
         setCardDetail({
           cardDetail: newCardList,
@@ -66,6 +61,12 @@ function FlashCard() {
     } else if (name === "Shuffle") {
       getCardDetail();
       dispatch(setSelectedCard(null));
+    }
+    console.log("Card length: ", cardDetail.length);
+    console.log("Card Name", name, curr_index);
+    if (newCardList.length === 0) {
+      dispatch(setGameResult("Win"));
+      dispatch(updateUserCurrentScore());
     }
   }
 
