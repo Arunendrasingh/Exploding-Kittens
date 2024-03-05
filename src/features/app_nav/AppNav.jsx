@@ -4,20 +4,22 @@ function AppNav() {
   const { totalLifeline } = useSelector((state) => state.game);
   const { userScore, userName } = useSelector((state) => state.user);
   return (
-    <nav
-      className=""
-      data-bs-theme=""
-    >
-      <div className="">
-        <a className="" href="/">
+    <nav className="grid h-16  bg-[#3b82f6] text-white">
+      <div className="flex flex-row items-center justify-between">
+        <a
+          className="grid auto-cols-max grid-flow-col items-center gap-4"
+          href="/"
+        >
           <img
             src="/img/logo.png"
             alt="Logo"
-            width="30"
-            height="30"
-            className=""
+            width="55"
+            height="50"
+            className="mb-1 ms-1 mt-0.5"
           />
-          Exploding Kittens
+          <span className="text-2xl hover:font-bold hover:text-[#172554]">
+            Exploding Kittens
+          </span>
         </a>
         <button
           className=""
@@ -30,29 +32,28 @@ function AppNav() {
         >
           <span className=""></span>
         </button>
-        <div className="" id="navbarSupportedContent">
-          <ul className="">
-            {/* <li className="">
-              <a className="" aria-current="page" href="/">
-                Home
-              </a>
-            </li> */}
-            <li className="">
-              <a className="" href="/">
-                New Game
-              </a>
-            </li>
-          </ul>
-          <div className="">
-            {userName && (
-              <div className="">
-                Hello <strong>{userName}</strong>
-              </div>
-            )}
+        <div className="flex gap-3" id="navbarSupportedContent">
+          <div className="grid grid-cols-3 gap-x-3">
             <div className="">{"❤".repeat(totalLifeline)}</div>
-            <div className="">
-              <strong>Score: </strong>
-              {userScore}
+            {userName ? (
+              <div className="col-span-1">
+                <strong>Score: </strong>
+                {userScore}
+              </div>
+            ) : null}
+            <div className="col-span-1">
+              {userName ? (
+                <>
+                  Hello <strong>{userName}</strong>
+                </>
+              ) : (
+                <a
+                  href="/"
+                  className="text-lg hover:hover:font-bold hover:text-[#172554]"
+                >
+                  Login
+                </a>
+              )}
             </div>
           </div>
         </div>
