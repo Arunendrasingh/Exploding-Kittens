@@ -11,8 +11,8 @@ function App() {
     <>
       {isLoading && <Spinner />}
       <AppNav />
-      <div className="m-3 mx-5 vh-80">
-        <div className="row h-100">{!userName ? <Login /> : <Game />}</div>
+      <div className="">
+        <div className="">{!userName ? <Login /> : <Game />}</div>
       </div>
     </>
   );

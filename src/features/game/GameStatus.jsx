@@ -5,15 +5,15 @@ import { resetForNewGame, logoutUser } from "../users/usersSlice";
 function GameStatus({ children }) {
   const dispatch = useDispatch();
   return (
-    <div className="container mt-5">
-      <div className="row align-item-center text-center">
-        <div className="row">
+    <div className="">
+      <div className="">
+        <div className="">
           <h1>{children}</h1>
         </div>
 
-        <div className="row justify-content-evenly mt-5">
+        <div className="">
           <button
-            className="col-4 btn btn-primary"
+            className=""
             onClick={() => {
               dispatch(startNewGame());
               dispatch(resetForNewGame());
@@ -22,7 +22,7 @@ function GameStatus({ children }) {
             Start New Game
           </button>
           <button
-            className="col-4 btn btn-danger"
+            className=""
             onClick={() => dispatch(logoutUser())}
           >
             Logout & Quit

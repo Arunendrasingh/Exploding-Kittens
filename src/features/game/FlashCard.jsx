@@ -125,12 +125,12 @@ function FlashCard() {
   return (
     <>
       {isLoading && <Spinner />}
-      <div className="container rounded bg-dark-subtle vh-80 p-5 mt-5 d-flex align-items-center justify-content-center card-deck">
-        <div className="row h-75 w-100 justify-content-around align-items-stretch">
+      <div className="">
+        <div className="">
           {cardDetail.map((cardDetail, index) => (
             <div
               key={index}
-              className="col-12 col-md-2 my-2 my-md-none"
+              className=""
               onClick={() => handleClick(cardDetail.name, index)}
             >
               <Card

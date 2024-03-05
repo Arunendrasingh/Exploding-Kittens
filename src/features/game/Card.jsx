@@ -22,18 +22,18 @@ export default function Card({ index, currentCard, selectedCard }) {
 }
 
 function CardBack() {
-  return <div className="card bg-md-transparent mycard card-back"></div>;
+  return <div className=""></div>;
 }
 function CatCard() {
-  return <div className="bg-sm-transparent card mycard card-kitty"></div>;
+  return <div className=""></div>;
 }
 function BombCard() {
-  return <div className="bg-sm-transparent card mycard card-bomb"></div>;
+  return <div className=""></div>;
 }
 function DefuseCard() {
-  return <div className="bg-sm-transparent card mycard card-defuse"></div>;
+  return <div className=""></div>;
 }
 function SuffleCard() {
-  return <div className="bg-sm-transparent card mycard card-suffle"></div>;
+  return <div className=""></div>;
 }
 
