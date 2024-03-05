@@ -44,7 +44,7 @@ function FlashCard() {
       );
       dispatch(increaseLifeline());
     } else if (name === "Exploding Kitten") {
-      if (totalLifeline) {
+      if (totalLifeline > 0) {
         dispatch(decreaseLifeline());
       } else {
         // If no life present then, end the game.
@@ -61,6 +61,7 @@ function FlashCard() {
     } else if (name === "Shuffle") {
       getCardDetail();
       dispatch(setSelectedCard(null));
+      return
     }
     console.log("Card length: ", cardDetail.length);
     console.log("Card Name", name, curr_index);

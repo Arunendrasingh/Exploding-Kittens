@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import Spinner from "../Spinner";
@@ -9,12 +9,18 @@ function Game() {
   const { gameStatus, isLoading, gameResult } = useSelector(
     (state) => state.game
   );
-  const {userName, totalGameScore, totalGame } = useSelector((state) => state.user);
-  console.log(
-    `Total Game Played By '${userName }': ${totalGame}, and total Score: ${totalGameScore}`
-  );
-  console.log("Game Status: ", gameStatus);
-  // Here Load all Game related Data from API
+  // renderCount is a mutable ref used to count the number of times the component has rendered
+  const renderCount = useRef(0);
+  /**
+   * Effect that logs the game status, loading state, and game result when component updates
+   */
+  useEffect(() => {
+    renderCount.current++;
+    console.log(
+      `Game Status: ${gameStatus}, Is Loading: ${isLoading}, Game Result: ${gameResult}`
+    );
+  });
+  // Conditional rendering of Spinner and FlashCard/GameStatus components
   return (
     <>
       {isLoading && <Spinner />}
@@ -34,6 +40,7 @@ function Game() {
           )}
         </GameStatus>
       )}
+      <div>This component has rendered {renderCount.current} times.</div>;
     </>
   );
 }
