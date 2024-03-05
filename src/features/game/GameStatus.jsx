@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { startNewGame } from "./gameSlice";
-import { resetForNewGame } from "../users/usersSlice";
+import { resetForNewGame, logoutUser } from "../users/usersSlice";
 
 function GameStatus({ children }) {
   const dispatch = useDispatch();
@@ -21,7 +21,12 @@ function GameStatus({ children }) {
           >
             Start New Game
           </button>
-          <button className="col-4 btn btn-danger">Logout & Quit</button>
+          <button
+            className="col-4 btn btn-danger"
+            onClick={() => dispatch(logoutUser())}
+          >
+            Logout & Quit
+          </button>
         </div>
       </div>
     </div>

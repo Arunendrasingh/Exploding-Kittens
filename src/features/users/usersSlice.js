@@ -30,6 +30,13 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.totalGame += 1;
     },
+    logoutUser(state, action) {
+      state.userName = "";
+      state.userScore = 0;
+      state.isLoading = false;
+      state.totalGame = 0;
+      state.totalGameScore = 0;
+    },
     // IncreaseTotalPlayedGame(state, action) {
     // },
   },
@@ -42,5 +49,6 @@ export const {
   // IncreaseTotalPlayedGame,
   setScore,
   resetForNewGame,
+  logoutUser
 } = userSlice.actions;
 export default userSlice.reducer;

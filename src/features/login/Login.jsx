@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addUser, setLoader } from "../users/usersSlice";
+import { startNewGame } from "../game/gameSlice";
 
 function Login() {
   const [userName, setUserName] = useState("");
@@ -11,8 +12,9 @@ function Login() {
   async function handleFormSubmit(e) {
     dispatch(setLoader(true));
     e.preventDefault();
-    dispatch(setLoader(false));
     dispatch(addUser(userName));
+    dispatch(startNewGame())
+    dispatch(setLoader(false));
   }
   return (
     <div className="col-9 m-auto h-100">
