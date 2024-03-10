@@ -17,8 +17,8 @@ function Login() {
     dispatch(setLoader(false));
   }
   return (
-    <div className="flex h-dvh items-center justify-center">
-      <div className="grid h-80 grid-rows-6 rounded-xl bg-slate-100 p-4 shadow-2xl">
+    <div className="h-dvh bg-pattern bg-contain">
+      <div className="">
         <h1 className="font my-auto text-center text-3xl font-bold uppercase text-blue-700 text-opacity-90">
           Play Exploding Kitten Game
         </h1>

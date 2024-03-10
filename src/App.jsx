@@ -6,14 +6,17 @@ import Spinner from "./features/Spinner";
 import Game from "./features/game/Game";
 
 function App() {
-  const { userName, isLoading } = useSelector((state) => state.user);
+  const { userName } = useSelector((state) => state.user);
   return (
     <>
-      {isLoading && <Spinner />}
-      <AppNav />
-      <div className="">
-        <div className="">{!userName ? <Login /> : <Game />}</div>
-      </div>
+      {!userName ? (
+        <Login />
+      ) : (
+        <>
+          <AppNav />
+          <Game />
+        </>
+      )}
     </>
   );
 }
